@@ -6,7 +6,7 @@ const receiptsController = require('../controller/receiptsController');
 // POST /receipts/process
 router.post('/process', receiptsController.processReceipt);
 
-// GET /receipts/:id
+// GET /receipts/:id/points
 router.get('/:id/points', receiptsController.getReceiptPoints);
 
 module.exports = router;

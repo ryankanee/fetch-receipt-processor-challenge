@@ -11,7 +11,7 @@ exports.processReceipt = (req, res) => {
         !receipt.total ||
         !Array.isArray(receipt.items)
     ) {
-        return res.status(400).json({ error: 'Invalid receipt structure' });
+        return res.status(400).json({ error: 'The receipt is invalid.' });
     }
 
     const id = receiptsModel.processReceiptModel(receipt);
@@ -23,7 +23,7 @@ exports.getReceiptPoints = (req, res) => {
     const receipt = receiptsModel.getReceiptById(id);
 
     if (!receipt) {
-        return res.status(404).json({ error: 'Receipt not found' });
+        return res.status(404).json({ error: 'No receipt found for that ID.' });
     }
 
     const points = calcPoints(receipt);

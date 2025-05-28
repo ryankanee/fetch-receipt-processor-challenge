@@ -1,10 +1,9 @@
 const { v4: uuidv4 } = require('uuid');
 
 const receipts = {};
-let currId = 1
 
 exports.processReceiptModel = (receipt) => {
-    const id = currId++;
+    const id = uuidv4();
     receipts[id] = receipt;
     return id;
 };
